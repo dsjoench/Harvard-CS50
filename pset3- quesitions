@@ -1,0 +1,59 @@
+# Questions
+
+## What's `stdint.h`?
+
+//stdint.h is a header file in the C standard library introduced in the C99 standard library section 7.18 to allow programmers to write more portable code by providing a set of typedefs that specify exact-width integer types, together with the defined minimum and maximum allowable values for each type, using macros 
+
+## What's the point of using `uint8_t`, `uint32_t`, `int32_t`, and `uint16_t` in a program?
+
+An INT32 is a 32-bit signed integer (range: –2147483648 through 2147483647 decimal
+A UINT8 is an 8-bit unsigned integer (range: 0 through 255 decimal).unsigned integer holds positive integer only 
+
+
+## How many bytes is a `BYTE`, a `DWORD`, a `LONG`, and a `WORD`, respectively?
+
+
+A DWORD is a 32-bit unsigned integer 4 bytes
+A BYTE is an 8-bit unsigned value    1 byte
+A LONG is a 32-bit signed integer    4 bytes
+A WORD is a 16-bit unsigned integer   2 bytes
+## What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+
+ASCII B then ASCII M.
+
+## What's the difference between `bfSize` and `biSize`?
+
+biSize is the number of bytes required by the structure.
+bfsize is the size, in bytes, of the bitmap file. 
+
+## What does it mean if `biHeight` is negative?
+
+The height of the bitmap, in pixels. If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner. If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+
+## What field in `BITMAPINFOHEADER` specifies the BMP's color depth (i.e., bits per pixel)?
+
+biBitCount
+
+## Why might `fopen` return `NULL` in `copy.c`?
+The file doesn't exist
+The file is opened in a mode that doesn't allow other accesses
+The network is down
+The file exists, but you don't have permissions
+A file exists with the name you gave, but the current directory of the process is not what you expected so the relative pathname fails to find and open the file.
+
+## Why is the third argument to `fread` always `1` in our code?
+
+Set 1 so that it is easier to obtain the number of bytes from the file 
+
+## What value does `copy.c` assign to `padding` if `bi.biWidth` is `3`?
+
+If biWidth is 3:
+        int padding =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4 = 3.
+
+## What does `fseek` do?
+
+move file pointer position to the given location
+
+## What is `SEEK_CUR`?
+
+It moves file pointer position to given location.
